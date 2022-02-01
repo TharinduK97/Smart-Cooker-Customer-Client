@@ -2,6 +2,13 @@ import { useState } from 'react'
 import './App.css'
 import Navbar from './components/Navbar/navbar';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import ProductList from './containers/Productlist/productList';
+import ProductView from './components/Homepage/productView';
+import Transactions from './containers/Transactions/transactions';
+import Orders from './containers/Orders/orders';
+import Login from "./containers/login/login"
+
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -10,14 +17,15 @@ function App() {
     <BrowserRouter>
         <Navbar/>
         <Routes >
-
-          {/* <Route path="/inventory">
-            <Route index element={<Inventory />} />
-            <Route path=":number" element={<Inventoryview />} />
-          </Route> */}
-          <Route path="/"  element={<Mainpage />} />
-
-        <Routes />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/orders" element={<Orders />} />
+        <Route path="/transactions" element={<Transactions />} />
+          <Route path="/">
+            <Route index element={<ProductList/>} />
+            <Route path=":number" element={<ProductView/>} />
+          </Route>
+        
+        </Routes >
         </BrowserRouter>
     </div>
   )

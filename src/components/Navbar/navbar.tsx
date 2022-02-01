@@ -6,21 +6,21 @@ function Navbar() {
     return (
         <div className="navbar mb-2 shadow-lg bg-neutral text-neutral-content ">
             <div className="flex-none px-2 mx-2">
-                <a >
+                <Link to="/">
                     <span className="text-lg font-bold">
                         Smart Cookers
                     </span>
-                </a>
+                </Link>
 
             </div>
             <div className="flex-1 px-2 mx-2">
                 <div className="items-stretch hidden lg:flex">
-                    <a className="btn btn-ghost btn-sm rounded-btn" >
+                    <Link to="/orders" className="btn btn-ghost btn-sm rounded-btn" >
                         Orders
-                    </a>
-                    <a className="btn btn-ghost btn-sm rounded-btn">
+                    </Link>
+                    <Link to="/transactions" className="btn btn-ghost btn-sm rounded-btn">
                         Transactions
-                    </a>
+                    </Link>
                     
 
                 </div>
@@ -28,9 +28,9 @@ function Navbar() {
 
 
             <div className="flex-none pr-4">
-            <a className="btn btn-ghost btn-sm rounded-btn">
+            <Link to="/login" className="btn btn-ghost btn-sm rounded-btn">
                         Login
-                    </a>
+                    </Link>
 
             </div>
 
