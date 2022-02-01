@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import {Productlistpage} from "../../";
+import Productlistpage from "../../components/Homepage/productList";
 
 
 function ProductList() {
@@ -29,16 +29,43 @@ function ProductList() {
             price: 2000,
             quantity: 20,
             productDescription:"Cras malesuada pretium orci, non ultricies orci fringilla eu. Praesent congue volutpat facilisis. Quisque sed vehicula libero. Curabitur fermentum pharetra tellus viverra iaculis. Ut convallis magna nisl, ut convallis massa convallis quis. Suspendisse vestibulum, risus nec congue gravida, enim lectus pellentesque lorem, non tempor dui diam non ex.",
-            productImage:"https://damroonline.lk/wp-content/uploads/2021/06/IGS006.jpg",
+            productImage:"https://www.singersl.com/sites/default/files/styles/product_large/public/images/products/2021-11/NIK_NG845K1-01.jpg?itok=Zn1r5hI0",
             last_updated: "2022-1-18"
         },
         {
-            product_code: 3,
+            product_code: 4,
+            product_name: "Pressure Cooker",
+            price: 3000,
+            quantity: 30,
+            productDescription:"Cras malesuada pretium orci, non ultricies orci fringilla eu. Praesent congue volutpat facilisis. Quisque sed vehicula libero. Curabitur fermentum pharetra tellus viverra iaculis. Ut convallis magna nisl, ut convallis massa convallis quis. Suspendisse vestibulum, risus nec congue gravida, enim lectus pellentesque lorem, non tempor dui diam non ex.",
+            productImage:"https://www.singersl.com/sites/default/files/styles/product_large/public/images/products/2022-01/KEN_KN-PCM80-01.jpg?itok=UW4VgaBt",
+            last_updated: "2022-1-28"
+        },
+        {
+            product_code: 5,
+            product_name: "Oven and Grill",
+            price: 3000,
+            quantity: 30,
+            productDescription:"Cras malesuada pretium orci, non ultricies orci fringilla eu. Praesent congue volutpat facilisis. Quisque sed vehicula libero. Curabitur fermentum pharetra tellus viverra iaculis. Ut convallis magna nisl, ut convallis massa convallis quis. Suspendisse vestibulum, risus nec congue gravida, enim lectus pellentesque lorem, non tempor dui diam non ex.",
+            productImage:"https://www.singersl.com/sites/default/files/styles/product_large/public/images/products/2022-01/TEF_TFFW501827-01.jpg?itok=4vOnxaOd",
+            last_updated: "2022-1-28"
+        },
+        {
+            product_code: 6,
             product_name: "Induction Cooker",
             price: 3000,
             quantity: 30,
             productDescription:"Cras malesuada pretium orci, non ultricies orci fringilla eu. Praesent congue volutpat facilisis. Quisque sed vehicula libero. Curabitur fermentum pharetra tellus viverra iaculis. Ut convallis magna nisl, ut convallis massa convallis quis. Suspendisse vestibulum, risus nec congue gravida, enim lectus pellentesque lorem, non tempor dui diam non ex.",
-            productImage:"https://www.ubuy.com.lk/productimg/?image=aHR0cHM6Ly9tLm1lZGlhLWFtYXpvbi5jb20vaW1hZ2VzL0kvNjFHNkVEV2pnYUwuX0FDX1NMMTUwMF8uanBn.jpg",
+            productImage:"https://www.singersl.com/sites/default/files/styles/product_large/public/images/products/2022-01/PRE-INDUCOO-01.jpg?itok=bWu5NLhf",
+            last_updated: "2022-1-28"
+        },
+        {
+            product_code: 6,
+            product_name: "Air Fryer",
+            price: 3000,
+            quantity: 30,
+            productDescription:"Cras malesuada pretium orci, non ultricies orci fringilla eu. Praesent congue volutpat facilisis. Quisque sed vehicula libero. Curabitur fermentum pharetra tellus viverra iaculis. Ut convallis magna nisl, ut convallis massa convallis quis. Suspendisse vestibulum, risus nec congue gravida, enim lectus pellentesque lorem, non tempor dui diam non ex.",
+            productImage:"https://www.singersl.com/sites/default/files/styles/product_large/public/images/products/2021-11/NIK_NAF779A-01.jpg?itok=f2sQft5j",
             last_updated: "2022-1-28"
         }
     ]
@@ -46,7 +73,7 @@ function ProductList() {
     return (
         <div>
             
-            <Inventoryhome items={Productlist} />
+            < Productlistpage products={Productlist} />
 
         </div>
     )
