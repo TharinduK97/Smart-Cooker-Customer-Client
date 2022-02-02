@@ -29,7 +29,7 @@ function ProductListItem(props: productprops) {
                         <p className="text-lg"> Rs. {props.product.price}</p>
                         </div>
                         <div className="col-end-6 col-span-2 ...">
-                        <p>Quantity - {props.product.quantity}</p>
+                        <p><div className="badge badge-accent">Qty {props.product.quantity}</div></p>
                         </div>
                        
                     </div>

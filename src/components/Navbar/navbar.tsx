@@ -25,7 +25,12 @@ function Navbar() {
 
                 </div>
             </div>
+            <div className="flex-none pr-4">
+            <Link to="/profile" className="btn btn-ghost btn-sm rounded-btn">
+                        Profile
+                    </Link>
 
+            </div>
 
             <div className="flex-none pr-4">
             <Link to="/login" className="btn btn-ghost btn-sm rounded-btn">
