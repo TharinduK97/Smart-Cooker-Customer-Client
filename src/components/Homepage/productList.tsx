@@ -9,9 +9,8 @@ type productprops = {
         last_updated: string;
         productDescription:string;
         productImage:string;
-    }[];
+    }[] ;
 
-    
 }
 
 
@@ -20,11 +19,10 @@ function Productlist(props:productprops) {
         <div>
             <div className="grid grid-cols-5 gap-6  pt-4">
             
-                               
-                            {props.products.map(products =>
+                            {props.products.map((products,index) =>
                                 {
                                     return(
-                                            <ProductListItem product={products} key={products.product_code+1} />   
+                                            <ProductListItem product={products} key={index} />   
                                     )
                                 })}
 
