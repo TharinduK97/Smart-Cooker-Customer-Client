@@ -44,9 +44,9 @@ export interface IProducts {
     },
   });
   
-  export const fetchSingleProduct = (id:number) => async (dispatch: any) => {
+  export const fetchSingleProduct = (id:string) => async (dispatch: any) => {
     dispatch(start());
-    console.log(id)
+    // console.log(id)
     try {
       const product = await getSingleProduct(id);
       console.log(product)

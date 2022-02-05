@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+
 
 
 type productprops = {
@@ -10,7 +10,7 @@ type productprops = {
         last_updated: string;
         productDescription: string;
         productImage: string;
-    };
+    }; 
 }
 
 function ProductView(props: productprops) {

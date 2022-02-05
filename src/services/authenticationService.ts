@@ -1,5 +1,4 @@
 import { getAccessToken } from './localStorage';
-import { env_var } from '../config/env';
 import { loginpost } from './apiService';
 
 export interface AuthPayload {

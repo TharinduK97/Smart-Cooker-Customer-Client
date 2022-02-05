@@ -21,13 +21,14 @@ function App() {
         <Routes  >
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
+           <Route path="/orders" element={<Orders />} />
           <Route path="/transactions" element={<Transactions />} />
           <Route path="/">
             <Route index element={<ProductList />} />
-            <Route path=":number" element={<ProductView />} />
+            <Route path="/view/:id" element={<ProductView />} />
           </Route>
 
-          {/* <PrivateRoute path="/orders" element={<Orders />} /> */}
+         
 
         </Routes >
       </BrowserRouter>

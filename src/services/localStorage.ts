@@ -1,4 +1,7 @@
 import jwt_decode from "jwt-decode";
+import { useNavigate } from 'react-router-dom';
+import { isAuthenticated } from '../services/authenticationService';
+
 
 export const setTokens = (authRes: any) => {
   console.log(authRes)
@@ -6,14 +9,20 @@ export const setTokens = (authRes: any) => {
 
   localStorage.setItem('token', authRes);
   localStorage.setItem('user', decoded.nameid);
-  // localStorage.setItem('refreshToken', JSON.stringify(authRes.refreshToken));
+  
 };
 
 export const removeTokens = () => {
+  
   localStorage.removeItem('user');
-  // localStorage.removeItem('accessToken');
-  // localStorage.removeItem('refreshToken');
   localStorage.removeItem('token');
+  
+  console.log("logout");
+  
+       
+    
+
+
 };
 
 export const getAccessToken = () => localStorage.getItem('token')?.slice(1, -1);
