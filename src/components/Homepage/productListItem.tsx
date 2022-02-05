@@ -17,7 +17,7 @@ function ProductListItem(props: productprops) {
 
     return (
         <div>
-            <div className="card  shadow-2xl ">
+            <div className="card  shadow-2xl  border rounded-box">
                 <figure className="px-10 pt-10 ">
                     <img src={props.product.productImage} className="rounded-xl max-w-6xl  " />
                 </figure>
@@ -35,7 +35,7 @@ function ProductListItem(props: productprops) {
                     </div>
                   
                     
-                    <Link className="justify-center card-actions" to={`/${props.product.product_code}`}>
+                    <Link className="justify-center card-actions" to={`/view/${props.product.product_code}`}>
                         <button className="btn btn-outline btn-accent">More info</button>
                     </Link>
                 </div>

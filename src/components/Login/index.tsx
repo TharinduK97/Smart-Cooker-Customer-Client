@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-
+import { useNavigate } from 'react-router-dom';
 import { isAuthenticated } from '../../services/authenticationService';
 import { authenticateUser } from "../../store/loginSlice";
 import { useAppDispatch } from "../../hooks";
+import { useSelector, useDispatch } from 'react-redux';
 
-// import { useHistory } from 'react-router-dom';
+
 
 export interface ILoginPageProps { }
 
@@ -31,22 +32,30 @@ const LoginPageProps: React.FunctionComponent<ILoginPageProps> = (props) => {
     });
 
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
 
-    // let history = useHistory();
-    //     if (isAuthenticated()) {
-    // //   history.push('/v1');
-    // }
+   
 
-    // const onFinish = (values: any) => {
-    //     dispatch(authenticateUser(values));
-    // };
 
-    const onSubmit = (data: IFormInputs) => { 
-        
+    const onSubmit = (data: IFormInputs) => {
+
         console.log(data)
-        dispatch(authenticateUser(data));
+        dispatch(authenticateUser(data)).then(
+            ()=>{
+                if (isAuthenticated()) {
+       
+                    navigate('/profile');
+            
+            }else{
+                alert('Either of username or password is incorrect')
+            }
+            }
+
+        );
 
     };
+
+   
 
     return (
         <div>
@@ -82,12 +91,9 @@ const LoginPageProps: React.FunctionComponent<ILoginPageProps> = (props) => {
 
                         </div>
 
-                        {/* <div className="col-start-3 col-end-4 ... ">
-                            <button className="btn btn-outline  w-96 " type="submit">Login</button>
-                        </div> */}
                         <div className="col-start-3 col-span-2 ... ">
-                            
-                        <button className="btn btn-outline " type="submit">Login</button>
+
+                            <button className="btn btn-outline " type="submit">Login</button>
 
                         </div>
                         <br />
