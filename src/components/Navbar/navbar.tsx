@@ -23,6 +23,9 @@ function Navbar() {
             </div>
             <div className="flex-1 px-2 mx-2">
                 <div className="items-stretch hidden lg:flex">
+
+                    
+
                     {isAuthenticated() ?
                         <Link to="/orders" className="btn btn-ghost btn-sm rounded-btn" >
                             Orders
@@ -34,40 +37,40 @@ function Navbar() {
 
                     {isAuthenticated() ?
                         <Link to="/transactions" className="btn btn-ghost btn-sm rounded-btn">
-                        Transactions
-                    </Link>
+                            Transactions
+                        </Link>
                         : <p></p>}
-                    
+
                 </div>
             </div>
             <div className="flex-none pr-4">
-            {isAuthenticated() ?
-                      <Link to="/profile" className="btn btn-ghost btn-sm rounded-btn">
-                      Profile
-                  </Link>
-                        : <p></p>}
-                
+                {isAuthenticated() ?
+                    <Link to="/profile" className="btn btn-ghost btn-sm rounded-btn">
+                        Profile
+                    </Link>
+                    : <p></p>}
+
 
             </div>
 
             <div className="flex-none pr-4">
-            { ! isAuthenticated() ?
-                       <Link to="/login" className="btn btn-ghost btn-sm rounded-btn">
-                       Login
-                   </Link>
-                        : <p></p>}
-               
+                {!isAuthenticated() ?
+                    <Link to="/login" className="btn btn-ghost btn-sm rounded-btn">
+                        Login
+                    </Link>
+                    : <p></p>}
+
 
             </div>
 
             <div className="flex-none pr-4">
-            {  isAuthenticated() ?
-                     <a className="btn btn-ghost btn-sm rounded-btn" onClick={onLogOut}
-                     >
-                         Log out
-                     </a>
-                        : <p></p>}
-                
+                {isAuthenticated() ?
+                    <a className="btn btn-ghost btn-sm rounded-btn" onClick={onLogOut}
+                    >
+                        Log out
+                    </a>
+                    : <p></p>}
+
 
             </div>
         </div>
