@@ -4,7 +4,7 @@ function Transactions() {
   
     return (
       <div >
-          <TransactionsPage/>
+          {/* <TransactionsPage/> */}
       </div>
     )
   }

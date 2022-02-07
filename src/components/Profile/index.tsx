@@ -1,4 +1,5 @@
 import { getUser } from '../../services/localStorage';
+import { BsPersonFill, BsEnvelopeFill, BsHouseDoorFill} from "react-icons/bs";
 
 function Profile() {
 
@@ -18,13 +19,23 @@ function Profile() {
                   <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png"/>
                 </div>
               </div>
+
+              <div className="card-actions">
+              <BsEnvelopeFill/>  - tharindu123@gmail.com
+
+              </div>
+
+              <div className="card-actions">
+              <BsPersonFill/>  - 9772241415V
+          
+               </div>
+
+              <div className="card-actions">
+              <BsHouseDoorFill/>  - Pasindu, Ella road, Elpitiya
+          
+              </div>
               
-
-              <p className='text-lg'>NIC - 972241415V</p>
-              <p className='text-lg'> tharindu123@gamil.com</p>
-              <p className='text-lg'>Address</p>
-              <p className='text-lg'>pasindu, ella road, elpitiya</p>
-
+        
 
             </div>
           </div>

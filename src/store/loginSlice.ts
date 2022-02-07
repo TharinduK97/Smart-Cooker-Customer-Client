@@ -1,10 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { authenticate } from '../services/authenticationService';
 import { setTokens } from '../services/localStorage';
-import { history } from '../helpers/history';
 import { RootState } from '.';
-import useHistory from "react-router-dom";
-import { useNavigate } from 'react-router-dom';
+
 
 export interface IAuthentication {
   isProcessingRequest: boolean;

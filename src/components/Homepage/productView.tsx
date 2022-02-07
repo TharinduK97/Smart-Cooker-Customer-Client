@@ -38,11 +38,14 @@ function ProductView(props: productprops) {
                                         <p className="text-lg"> Rs. {props.product.price}</p>
                                     </div>
                                     <div className="col-end-6 col-span-2 ...">
-                                        <p><div className="badge badge-accent">Qty {props.product.quantity}</div></p>
+                                        <p><div className="badge badge-accent">{props.product.quantity > 0 ?"In Stock":"Out Of Stock"}</div></p>
                                     </div>
 
                                 </div>
                                 <p>{props.product.productDescription}</p>
+
+                                
+
                                 <div className="justify-end card-actions">
                                     <button className="btn btn-secondary">Buy Now</button>
                                 </div>
