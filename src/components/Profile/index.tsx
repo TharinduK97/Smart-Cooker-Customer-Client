@@ -10,41 +10,61 @@ function Profile() {
 
         <div className="col-start-3 col-end-7 ...  border rounded-box">
 
-          <div className="card  shadow-2xl">
-
-            <div className="card-body">
-            <h2 className="card-title">Tharindu Kumarasinghe</h2>
-              <div className="avatar">
-                <div className="mb-8 rounded-btn w-24 h-24">
-                  <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png"/>
-                </div>
-              </div>
-
-              <div className="card-actions">
-              <BsEnvelopeFill/>  - tharindu123@gmail.com
-
-              </div>
-
-              <div className="card-actions">
-              <BsPersonFill/>  - 9772241415V
-          
-               </div>
-
-              <div className="card-actions">
-              <BsHouseDoorFill/>  - Pasindu, Ella road, Elpitiya
-          
-              </div>
-              
+         
+        <div className="bg-white shadow overflow-hidden sm:rounded-lg">
+      <div className="px-4 py-5 sm:px-6">
+        <h3 className="text-lg leading-6 font-medium text-gray-900">Hi Tharindu</h3>
         
-
-            </div>
+      </div>
+      <div className="border-t border-gray-200">
+        <dl>
+          <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium text-gray-500">Full name</dt>
+            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">Tharindu Kumarasinghe</dd>
+          </div>
+          <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium text-gray-500">NIC</dt>
+            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">972241415V</dd>
+          </div>
+          <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium text-gray-500">Email address</dt>
+            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">tharindu123@gmail.com</dd>
+          </div>
+          
+          <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium text-gray-500">Address</dt>
+            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+              Pasindu, Ella Road, Elpitiya
+            </dd>
           </div>
 
+          <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium text-gray-500">Attachments</dt>
+            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+
+              <ul role="list" className="border border-gray-200 rounded-md divide-y divide-gray-200">
+                <li className="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
+                  <div className="w-0 flex-1 flex items-center">
+                    
+                    <span className="ml-2 flex-1 w-0 truncate">resume_back_end_developer.pdf</span>
+                  </div>
+                  <div className="ml-4 flex-shrink-0">
+                    <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+                      Download
+                    </a>
+                  </div>
+                </li>
+                
+              </ul>
+
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
 
 
         </div>
-
-
       </div>
     </div>
   )

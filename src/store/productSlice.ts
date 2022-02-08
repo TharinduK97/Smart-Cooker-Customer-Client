@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction  } from "@reduxjs/toolkit";
-import { getProductList } from '../services/productService';
+import { getProductList, getProductListByOutlet } from '../services/productService';
 import { RootState } from "../store"
 import { IProduct } from './interface';
 
@@ -40,6 +40,16 @@ export interface IProductList {
     dispatch(start());
     try {
       const productLists = await getProductList();
+      dispatch(success({productList : productLists}));
+    } catch (err:any) {
+      dispatch(error(err));
+    }
+  };
+
+  export const fetchProductsByOutlet = (outlet_id:number) => async (dispatch: any) => {
+    dispatch(start());
+    try {
+      const productLists = await getProductListByOutlet(outlet_id);
       dispatch(success({productList : productLists}));
     } catch (err:any) {
       dispatch(error(err));

@@ -16,3 +16,10 @@ export interface ITransaction {
         Created_at: string;
         productImage:string;
 };
+
+export interface IOutlet {
+        outlet_id: number;
+        door_number: number;
+        street: string;
+        city: string;
+};

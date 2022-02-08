@@ -1,4 +1,5 @@
 import TransactionsItem from "./transactionitem"
+import { Fragment, useState } from 'react'
 
 type transactionprops = {
   transactions: {
@@ -8,29 +9,35 @@ type transactionprops = {
     quantity: number;
     productImage: string;
     created_at: string;
-  }[] ;
+  }[];
 
 }
 
-function TransactionsPage(props:transactionprops) {
+function TransactionsPage(props: transactionprops) {
 
 
   return (
 
     <div >
       <div className="container mx-auto  ">
-        <div className="grid grid-cols-6 gap-4 pt-6 ">
 
-        {props.transactions.map((transaction,index) =>
-                                {
-                                    return(
-                                            <TransactionsItem transaction = {transaction} key={index} />   
-                                    )
-                                })}
-        
-        </div>
+      
+
+
+
+        {props.transactions.map((transaction, index) => {
+          return (
+            <TransactionsItem transaction={transaction} key={index} />
+          )
+        })}
+
+
+
+
+
       </div>
     </div>
+
   )
 }
 
