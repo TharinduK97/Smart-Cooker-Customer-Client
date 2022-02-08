@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction  } from "@reduxjs/toolkit";
 import Transactions from "../containers/Transactions/transactions";
-import { getTransactionList } from '../services/transactionService';
+import { getTransactionList, settransaction } from '../services/transactionService';
 import { RootState } from "."
 import { ITransaction } from './interface';
 
@@ -43,6 +43,22 @@ export interface ITransactionList {
       const transactionList = await getTransactionList();
       dispatch(success({transactionList : transactionList}));
     } catch (err:any) {
+      dispatch(error(err));
+    }
+  };
+
+  export const postTransaction = (data: any) => async (dispatch: any) => {
+    dispatch(start());
+ console.log(data)
+    try {
+      const authData = await settransaction(
+        data
+      );
+      console.log(authData);
+         return "sucess";
+        
+    } catch (err: any) {
+      console.log(err);
       dispatch(error(err));
     }
   };

@@ -49,7 +49,7 @@ export interface IProducts {
     // console.log(id)
     try {
       const product = await getSingleProduct(id);
-      console.log(product)
+      // console.log(product)
       dispatch(success({product : product}));
     } catch (err:any) {
       dispatch(error(err));

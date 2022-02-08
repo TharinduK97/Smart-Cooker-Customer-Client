@@ -38,7 +38,11 @@ export interface IoutletList {
 
 
       selectOutlet: (state, action: PayloadAction<number>) => {
-       state.selectedOutlet=action.payload;
+          return{
+              ...state,
+            selectedOutlet:action.payload,
+          }
+      
       }
     },
   });
