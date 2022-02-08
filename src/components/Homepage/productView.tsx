@@ -1,3 +1,6 @@
+import { useAppDispatch } from "../../hooks";
+import { addToCart } from "../../store/cartSlice";
+import { IProduct } from "../../store/interface";
 
 
 
@@ -13,8 +16,14 @@ type productprops = {
     }; 
 }
 
+
 function ProductView(props: productprops) {
     
+const dispatch = useAppDispatch();
+
+    const add = ()=>{
+            dispatch(addToCart(props.product))
+    }    
     return (
         <div>
 
@@ -47,7 +56,7 @@ function ProductView(props: productprops) {
                                 
 
                                 <div className="justify-end card-actions">
-                                    <button className="btn btn-secondary">Buy Now</button>
+                                    <button className="btn btn-secondary" onClick={add}>Buy Now</button>
                                 </div>
                             </div>
                         </div>
