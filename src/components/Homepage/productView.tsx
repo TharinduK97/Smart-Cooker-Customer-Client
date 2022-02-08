@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useAppDispatch } from "../../hooks";
 import { addToCart } from "../../store/cartSlice";
 import { IProduct } from "../../store/interface";
@@ -56,7 +57,10 @@ const dispatch = useAppDispatch();
                                 
 
                                 <div className="justify-end card-actions">
-                                    <button className="btn btn-secondary" onClick={add}>Buy Now</button>
+                                    <Link to="/checkout">
+                                    <button className="btn btn-secondary" >Buy Now</button>
+                                    </Link>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -65,6 +69,8 @@ const dispatch = useAppDispatch();
                     </div>
                 </div>
             </div>
+
+            
         </div>
     )
 }

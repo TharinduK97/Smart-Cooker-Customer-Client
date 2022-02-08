@@ -24,8 +24,8 @@ function Navbar() {
             </div>
             <div className="flex-1 px-2 mx-2">
                 <div className="items-stretch hidden lg:flex">
-
-                <Cart/>
+                {/* <a href="/cart">cart</a> */}
+                {/* <Cart/> */}
 
                     {isAuthenticated() ?
                         <Link to="/orders" className="btn btn-ghost btn-sm rounded-btn" >

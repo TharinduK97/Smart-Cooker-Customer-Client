@@ -21,20 +21,11 @@ function TransactionsPage(props: transactionprops) {
     <div >
       <div className="container mx-auto  ">
 
-      
-
-
-
         {props.transactions.map((transaction, index) => {
           return (
             <TransactionsItem transaction={transaction} key={index} />
           )
         })}
-
-
-
-
-
       </div>
     </div>
 

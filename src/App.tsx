@@ -8,8 +8,9 @@ import Transactions from './containers/Transactions/transactions';
 import Orders from './containers/Orders/orders';
 import Login from "../src/components/Login/index"
 import { PrivateRoute } from '../src/helpers/privateRoutes';
-import { history } from './helpers/history';
 import Profile from './components/Profile';
+import Checkout from './containers/Checkout';
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,6 +20,7 @@ function App() {
       <BrowserRouter >
         <Navbar />
         <Routes  >
+        <Route path="/checkout" element={<Checkout />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
            <Route path="/orders" element={<Orders />} />
