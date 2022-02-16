@@ -8,7 +8,7 @@ export interface AuthPayload {
 
 export const authenticate = async (data: AuthPayload) => {
 
-  return await loginpost(`Auth/Login`, data);
+  return await loginpost(`Auth/CustomerLogin`, data);
 
 };
 

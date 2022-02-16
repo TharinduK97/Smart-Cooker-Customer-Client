@@ -40,7 +40,7 @@ export const authenticateUser = (userData: any) => async (dispatch: any) => {
     const authData = await authenticate(
       userData
     );
-    // console.log(authData);
+     console.log(authData);
     setTokens(authData.data);
     dispatch(success(authData.data));
 

@@ -1,5 +1,5 @@
 import { get } from './apiService';
 
 export const getOutletList = async function () {
-    return await get(`https://61fa979892093f0017ad9922.mockapi.io/outlet`);
+    return await get(`Outlet/GetAll`);
   }

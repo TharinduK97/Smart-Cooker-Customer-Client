@@ -33,7 +33,7 @@ const LoginPageProps: React.FunctionComponent<ILoginPageProps> = (props) => {
 
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
-
+    const [error, setError] = useState(false);
    
 
 
@@ -47,7 +47,7 @@ const LoginPageProps: React.FunctionComponent<ILoginPageProps> = (props) => {
                     navigate('/profile');
             
             }else{
-                alert('Either of username or password is incorrect')
+                setError(true);
             }
             }
 
@@ -58,7 +58,7 @@ const LoginPageProps: React.FunctionComponent<ILoginPageProps> = (props) => {
    
 
     return (
-        
+
         <div>
             <form className="form-detail" onSubmit={handleSubmit(onSubmit)} >
 
@@ -66,6 +66,9 @@ const LoginPageProps: React.FunctionComponent<ILoginPageProps> = (props) => {
                     <div className="grid grid-cols-6 gap-4 pt-6 ">
 
                         <div className="col-start-3 col-span-2 ...  ">
+                        {
+                            error && <label><p className="text-red-500 pl-1 text-lg ">Either of username or password is incorrect</p></label>
+                        }
                             <div className="form-control pb-2">
                                 <label className="label">
                                     <span className="label-text text-lg">Username</span>

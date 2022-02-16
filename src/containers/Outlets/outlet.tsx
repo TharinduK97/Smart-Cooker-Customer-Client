@@ -19,7 +19,7 @@ function Outlets() {
     dispatch( selectOutlet(e.target.value));
     
   }
- 
+ //console.log(outletList.outletList)
     return (
       <div >
          <div className="container mx-auto  ">
@@ -32,7 +32,7 @@ function Outlets() {
                             
                   {outletList.outletList?.map((outlet, index) => {
                     return(
-                        <option key={index} value={outlet.outlet_id}>
+                        <option key={index} value={outlet.id}>
                         {outlet.city}
                       </option>
                     )

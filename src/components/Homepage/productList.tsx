@@ -17,6 +17,7 @@ type productprops = {
 function Productlist(props:productprops) {
     return (
         <div>
+            {console.log(props.products)}
             <div className="grid grid-cols-5 gap-6  pt-4">
             
                             {props.products.map((products,index) =>
@@ -26,9 +27,6 @@ function Productlist(props:productprops) {
                                     )
                                 })}
 
-                
-
-               
             </div>
 
         </div>

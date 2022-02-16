@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { env_var } from '../config/env';
-import { history } from '../helpers/history';
 import { getFormDataHeader, getHeaderInfo } from '../helpers/tokenCreator';
 import { removeTokens } from './localStorage';
 const handleResponse = (response: any) => {
@@ -42,7 +41,7 @@ export const loginpost = async function (url: string, body: any) {
 export const get = async function (url: any, params: any = {}) {
     let header = await getHeaderInfo();
     try {
-        let resp = await axios.get(url, { ...header, params });
+        let resp = await axios.get(env_var.BASE_URL + url, { ...header, params });
         return handleResponse(resp);
     } catch (err : any) {
         throw handleResponse(err.response)
