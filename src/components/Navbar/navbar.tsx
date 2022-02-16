@@ -27,11 +27,11 @@ function Navbar() {
                 {/* <a href="/cart">cart</a> */}
                 {/* <Cart/> */}
 
-                    {isAuthenticated() ?
+                    {/* {isAuthenticated() ?
                         <Link to="/orders" className="btn btn-ghost btn-sm rounded-btn" >
                             Orders
                         </Link>
-                        : <p></p>}
+                        : <p></p>} */}
                     {/* <Link to="/orders" className="btn btn-ghost btn-sm rounded-btn" >
                         Orders
                     </Link> */}

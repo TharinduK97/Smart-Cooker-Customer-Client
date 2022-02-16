@@ -1,6 +1,6 @@
 const env = {
   development: {
-    BASE_URL: 'https://localhost:5001/',
+    BASE_URL: 'https://localhost:44362/',
     
   },
   // production: {

@@ -10,7 +10,7 @@ import Login from "../src/components/Login/index"
 import { PrivateRoute } from '../src/helpers/privateRoutes';
 import Profile from './components/Profile';
 import Checkout from './containers/Checkout';
-
+import { isAuthenticated } from './services/authenticationService';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,6 +22,11 @@ function App() {
         <Routes  >
         <Route path="/checkout" element={<Checkout />} />
           <Route path="/login" element={<Login />} />
+          {/* <PrivateRoute
+    path='/profile'
+    isAuthenticated={isAuthenticated}
+    component={Profile}
+/> */}
           <Route path="/profile" element={<Profile />} />
            <Route path="/orders" element={<Orders />} />
           <Route path="/transactions" element={<Transactions />} />

@@ -16,20 +16,22 @@ function ProductListItem(props: productprops) {
 
 
     return (
+       
         <div>
+             {/* {console.log(props.product.product.images[0].imageUrl)} */}
             <div className="card  shadow-2xl  border rounded-box">
                 <figure className="px-10 pt-10 ">
-                    <img src={props.product.productImage} className="rounded-xl max-w-6xl  " />
+                    <img src={props.product.product.images[0].imageUrl} className="rounded-xl max-w-6xl  " />
                 </figure>
                 <div className="card-body">
-                    <h2 className="card-title text-lg">{props.product.product_name}</h2>
+                    <h2 className="card-title text-lg">{props.product.product.productName}</h2>
                     <div className="grid grid-cols-5 gap-4">
                        
                         <div className="col-start-1 col-end-3 ...">
-                        <p className="text-lg"> Rs. {props.product.price}</p>
+                        <p className="text-lg"> Rs. {props.product.product.price}</p>
                         </div>
                         <div className="col-end-6 col-span-2 ...">
-                        <p><div className="badge badge-accent">{props.product.quantity > 0 ?"In Stock":"Out Of Stock"}</div></p>
+                        <p><div className="badge badge-accent">{props.product.availableQuantity }</div></p>
                         </div>
                        
                     </div>

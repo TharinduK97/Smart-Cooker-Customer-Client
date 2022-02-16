@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useAppDispatch } from "../../hooks";
+import { isAuthenticated } from "../../services/authenticationService";
 import { addToCart } from "../../store/cartSlice";
 import { IProduct } from "../../store/interface";
 
@@ -43,7 +44,11 @@ const dispatch = useAppDispatch();
                                     <div className="badge mx-2 badge-secondary">{props.product.product_name}</div>
                                 </h2>
                                 <div className="grid grid-cols-5 gap-4 pb-2">
-
+                               { isAuthenticated() &&
+                               <Link to="/checkout">
+                               <button className="btn btn-secondary" >Buy Now</button>
+                               </Link>
+                               } 
                                     <div className="col-start-1 col-end-3 ...">
                                         <p className="text-lg"> Rs. {props.product.price}</p>
                                     </div>
@@ -57,9 +62,7 @@ const dispatch = useAppDispatch();
                                 
 
                                 <div className="justify-end card-actions">
-                                    <Link to="/checkout">
-                                    <button className="btn btn-secondary" >Buy Now</button>
-                                    </Link>
+                                    
                                     
                                 </div>
                             </div>
