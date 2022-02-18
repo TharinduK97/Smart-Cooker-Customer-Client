@@ -1,11 +1,10 @@
 export interface IProduct {
-        product_code: number;
-        product_name: string;
+        id: string;
+        productName: string;
+        description:string;
         price: number;
         quantity: number;
-        last_updated: string;
-        productDescription:string;
-        productImage:string;
+        imageUrl:string;
 };
 
 export interface ITransaction {
@@ -22,4 +21,25 @@ export interface IOutlet {
         door_number: number;
         street: string;
         city: string;
+};
+export interface Address {
+        id: string;
+        doorNumber: string;
+        street: string;
+        city: string;
+};
+
+export interface IProfile {
+        id: string;
+    email: string,
+    firstName: string,
+    lastName: string,
+    nic: string,
+    addresse: {
+        id: string;
+        doorNumber: string;
+        street: string;
+        city: string;
+    }[]
+    
 };

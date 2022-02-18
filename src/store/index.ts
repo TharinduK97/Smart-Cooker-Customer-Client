@@ -5,6 +5,7 @@ import { productViewReducer } from './productViewSlice';
 import {transactionListReducer } from './transactionSlice';
 import { cartListReducer } from './cartSlice';
 import { outletListReducer } from './outletSlice';
+import { profileReducer } from './profileSlice';
  
 
 export const store = configureStore({
@@ -14,8 +15,8 @@ export const store = configureStore({
     product: productViewReducer,
     transaction: transactionListReducer,
     cart: cartListReducer,
-    outlet:outletListReducer
-    
+    outlet:outletListReducer,
+    profile:profileReducer
   },
 });
 

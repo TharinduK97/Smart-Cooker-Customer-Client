@@ -7,25 +7,22 @@ import { IProduct } from "../../store/interface";
 
 
 type productprops = {
-    product: {
-        product_code: number;
-        product_name: string;
-        price: number;
+    product:{
+        id:string
+        price:string,
         quantity: number;
-        last_updated: string;
-        productDescription: string;
-        productImage: string;
-    }; 
+        description: string;
+        productName: string;
+        imageUrl:string;
+    }
 }
 
 
 function ProductView(props: productprops) {
-    
-const dispatch = useAppDispatch();
 
-    const add = ()=>{
-            dispatch(addToCart(props.product))
-    }    
+    const dispatch = useAppDispatch();
+
+   
     return (
         <div>
 
@@ -37,33 +34,33 @@ const dispatch = useAppDispatch();
 
                         <div className="card card-bordered">
                             <figure>
-                                <img src={props.product.productImage} />
+                                <img src={props.product.imageUrl} />
                             </figure>
                             <div className="card-body">
                                 <h2 className="card-title">
-                                    <div className="badge mx-2 badge-secondary">{props.product.product_name}</div>
+                                    <div className="badge mx-2 badge-secondary">{props.product.productName}</div>
                                 </h2>
                                 <div className="grid grid-cols-5 gap-4 pb-2">
-                               { isAuthenticated() &&
-                               <Link to="/checkout">
-                               <button className="btn btn-secondary" >Buy Now</button>
-                               </Link>
-                               } 
+                                    {isAuthenticated() &&
+                                        <Link to="/checkout">
+                                            <button className="btn btn-secondary" >Buy Now</button>
+                                        </Link>
+                                    }
                                     <div className="col-start-1 col-end-3 ...">
                                         <p className="text-lg"> Rs. {props.product.price}</p>
                                     </div>
                                     <div className="col-end-6 col-span-2 ...">
-                                        <p><div className="badge badge-accent">{props.product.quantity > 0 ?"In Stock":"Out Of Stock"}</div></p>
+                                        <p><div className="badge badge-accent">{props.product.quantity > 0 ? "In Stock" : "Out Of Stock"}</div></p>
                                     </div>
 
                                 </div>
-                                <p>{props.product.productDescription}</p>
+                                <p>{props.product.description}</p>
 
-                                
+
 
                                 <div className="justify-end card-actions">
-                                    
-                                    
+
+
                                 </div>
                             </div>
                         </div>
@@ -73,7 +70,7 @@ const dispatch = useAppDispatch();
                 </div>
             </div>
 
-            
+
         </div>
     )
 }

@@ -5,17 +5,7 @@ import { fetchProducts, fetchProductsByOutlet, selectProductLists } from '../../
 import Outlets from '../Outlets/outlet';
 import { selectoutletLists } from '../../store/outletSlice';
 
-type productlist = {
-    products: {
-        product_code: number;
-        product_name: string;
-        price: number;
-        quantity: number;
-        last_updated: string;
-        productDescription: string;
-        productImage: string;
-    }[];
-}
+
 
 function ProductList() {
 
@@ -29,10 +19,6 @@ function ProductList() {
         // dispatch(fetchProducts());
         dispatch(fetchProductsByOutlet(outletList.selectedOutlet));
     }, [dispatch,outletList.selectedOutlet]);
-
-
-
-
 
     return (
         <div>

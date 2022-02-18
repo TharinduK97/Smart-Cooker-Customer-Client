@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { string } from "yup/lib/locale";
 import ProductViewPage from "../../components/Homepage/productView"
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { fetchSingleProduct, selectProduct } from "../../store/productViewSlice";
@@ -18,6 +19,7 @@ function ProductView() {
     useEffect(() => {
         dispatch(fetchSingleProduct(id));
       }, [dispatch]);
+      
       
 
     return (

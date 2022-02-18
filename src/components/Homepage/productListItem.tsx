@@ -2,13 +2,14 @@ import { Link } from "react-router-dom"
 
 type productprops = {
     product: {
-        product_code: number;
-        product_name: string;
-        price: number;
-        quantity: number;
-        last_updated: string;
-        productDescription: string;
-        productImage: string;
+        availableQuantity:number;
+        product:{
+            id:string
+            price:string,
+            quantity: number;
+            productName: string;
+            imageUrl:string;
+        }
     };
 }
 
@@ -18,10 +19,10 @@ function ProductListItem(props: productprops) {
     return (
        
         <div>
-             {/* {console.log(props.product.product.images[0].imageUrl)} */}
+         
             <div className="card  shadow-2xl  border rounded-box">
                 <figure className="px-10 pt-10 ">
-                    <img src={props.product.product.images[0].imageUrl} className="rounded-xl max-w-6xl  " />
+                    <img src={props.product.product.imageUrl} className="rounded-xl max-w-6xl  " />
                 </figure>
                 <div className="card-body">
                     <h2 className="card-title text-lg">{props.product.product.productName}</h2>
@@ -37,7 +38,7 @@ function ProductListItem(props: productprops) {
                     </div>
                   
                     
-                    <Link className="justify-center card-actions" to={`/view/${props.product.product_code}`}>
+                    <Link className="justify-center card-actions" to={`/view/${props.product.product.id}`}>
                         <button className="btn btn-outline btn-accent">More info</button>
                     </Link>
                 </div>

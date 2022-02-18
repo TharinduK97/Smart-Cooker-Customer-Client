@@ -5,18 +5,12 @@ import { IProduct } from './interface';
 
 export interface IProducts {
     isLoadingProducts: boolean;
-    product?: IProduct;
+    product?:{};
   }
 
-  const initialState: IProducts = { isLoadingProducts: false , product:{
-    product_code: 0,
-    product_name: "",
-    price: 0,
-    quantity: 0,
-    last_updated: "",
-    productDescription:"",
-    productImage:""
-  } };
+  const initialState: IProducts = { isLoadingProducts: false , product:{} 
+
+};
 
   export const productViewSlice = createSlice({
     name: 'product',
@@ -50,7 +44,7 @@ export interface IProducts {
     try {
       const product = await getSingleProduct(id);
       // console.log(product)
-      dispatch(success({product : product}));
+      dispatch(success({product : product.data}));
     } catch (err:any) {
       dispatch(error(err));
     }
