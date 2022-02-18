@@ -3,27 +3,18 @@ import jwt_decode from "jwt-decode";
 
 
 export const setTokens = (authRes: any) => {
-  // console.log(authRes)
-  let decoded: any = jwt_decode(authRes);
+   //console.log(authRes)
 
   localStorage.setItem('token', authRes);
-  localStorage.setItem('user', decoded.nameid);
-  
 };
 
 export const removeTokens = () => {
   
-  localStorage.removeItem('user');
   localStorage.removeItem('token');
   
   console.log("logout");
-  
-       
-    
-
-
 };
 
-export const getAccessToken = () => localStorage.getItem('token')?.slice(1, -1);
+export const getAccessToken = () => localStorage.getItem('token');
 export const getUser = () => localStorage.getItem('user');
 

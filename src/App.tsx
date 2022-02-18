@@ -8,7 +8,7 @@ import Transactions from './containers/Transactions/transactions';
 import Orders from './containers/Orders/orders';
 import Login from "../src/components/Login/index"
 import { PrivateRoute } from '../src/helpers/privateRoutes';
-import Profile from './components/Profile';
+import Profile from './containers/Profile/index';
 import Checkout from './containers/Checkout';
 import { isAuthenticated } from './services/authenticationService';
 
