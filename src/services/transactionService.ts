@@ -5,7 +5,7 @@ export const getTransactionList = async function () {
   }
 
   export const settransaction = async function (data:any) {
-    return await post(`https://61fa979892093f0017ad9922.mockapi.io/Orders`,data);
+    return await post(`Order`,data);
   }
 
 

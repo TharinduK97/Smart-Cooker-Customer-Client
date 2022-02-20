@@ -3,10 +3,13 @@ import { useAppDispatch } from "../../hooks";
 import { isAuthenticated } from "../../services/authenticationService";
 import { addToCart } from "../../store/cartSlice";
 import { IProduct } from "../../store/interface";
+import { productListReducer } from "../../store/productSlice";
+import CheckOut from "../../containers/Checkout/index"
 
 
 
 type productprops = {
+    
     product:{
         id:string
         price:string,
@@ -15,6 +18,7 @@ type productprops = {
         productName: string;
         imageUrl:string;
     }
+    
 }
 
 
@@ -40,17 +44,19 @@ function ProductView(props: productprops) {
                                 <h2 className="card-title">
                                     <div className="badge mx-2 badge-secondary">{props.product.productName}</div>
                                 </h2>
-                                <div className="grid grid-cols-5 gap-4 pb-2">
-                                    {isAuthenticated() &&
-                                        <Link to="/checkout">
-                                            <button className="btn btn-secondary" >Buy Now</button>
-                                        </Link>
+                                {isAuthenticated() &&
+                                      
+                                         <CheckOut/>
                                     }
+                               
+                                <div className="grid grid-cols-5 gap-4 pb-2">
+                                    
+                                   
                                     <div className="col-start-1 col-end-3 ...">
                                         <p className="text-lg"> Rs. {props.product.price}</p>
                                     </div>
                                     <div className="col-end-6 col-span-2 ...">
-                                        <p><div className="badge badge-accent">{props.product.quantity > 0 ? "In Stock" : "Out Of Stock"}</div></p>
+                                        <p><div className="badge badge-accent">{props.product.quantity }</div></p>
                                     </div>
 
                                 </div>

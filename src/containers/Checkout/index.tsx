@@ -22,13 +22,13 @@ const schema = yup.object({
 function Checkout() {
 
 
-    let  today 		= new Date();
-	let  dd 		= String(today.getDate()).padStart(2, '0');
-	let  mm 		= String(today.getMonth() + 1).padStart(2, '0'); 
-	let  yyyy 		= today.getFullYear();
-    let date =` ${yyyy}-${mm}-${dd}`;
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0');
+    let yyyy = today.getFullYear();
+    let date = ` ${yyyy}-${mm}-${dd}`;
 
-   
+
 
     const { register, handleSubmit, formState: { errors } } = useForm<IFormInputs>({
         resolver: yupResolver(schema)
@@ -41,57 +41,60 @@ function Checkout() {
     const onSubmit = (data: IFormInputs) => {
 
         let order = {
-            "user_code": getUser(),
-            "created_At": date,
-            "quantity": data.quantity,
-            "order_status": "pending",
-            "product_Code": product.product?.product_code,
-            "outlet_code": outletList.selectedOutlet
+            
+            "totalPrice": product.product?.price * data.quantity,
+            "outletId": outletList.selectedOutlet,
+            "productlist": [
+                {
+                    "productId": product.product?.id,
+                    "quantity": data.quantity
+                }
+            ]
         }
-        console.log(order)
-        
-        dispatch(postTransaction(order)).then((res)=>{
-                alert("success");
-                navigate("/");
+        //console.log(order)
+
+        dispatch(postTransaction(order)).then((res) => {
+            console.log(res)
+            //alert("success");
+            //navigate("/");
         })
-        
+
     };
 
 
     return (
         <div >
-            <div>
-                <form className="form-detail" onSubmit={handleSubmit(onSubmit)} >
 
-                    <div className="container mx-auto  ">
-                        <div className="grid grid-cols-6 gap-4 pt-6 ">
-
-                            <div className="col-start-3 col-span-2 ...  ">
-                                <div className="form-control pb-2">
-                                    <label className="label">
-                                        <span className="label-text text-lg">Enter the quantity</span>
-                                    </label>
-                                    <input type="number" placeholder="quantity" className="input input-bordered" {...register("quantity")} />
-                                </div>
-
-                                <label ><p className="text-red-500 pl-1 text-sm">{errors.quantity?.message}</p></label>
+            <form className="form-detail" onSubmit={handleSubmit(onSubmit)} >
 
 
-                            </div>
 
-
-                            <div className="col-start-3 col-span-2 ... ">
-
-                                <button className="btn btn-outline " type="submit">Place Order</button>
-
-                            </div>
-                            <br />
-
-                        </div>
+                <div className="col-start-3 col-span-2 ...  ">
+                    <div className="form-control pb-2">
+                        <label className="label">
+                            <span className="label-text text-lg">Enter the quantity</span>
+                        </label>
+                        <input type="number" placeholder="quantity" className="input input-bordered" {...register("quantity")} />
                     </div>
-                </form>
 
-            </div>
+                    <label ><p className="text-red-500 pl-1 text-sm">{errors.quantity?.message}</p></label>
+
+                    <button className="btn btn-secondary" type="submit" >Buy Now</button>
+
+
+
+                </div>
+
+
+                <div className="col-start-3 col-span-2 ... ">
+
+
+                </div>
+                <br />
+
+            </form>
+
+
         </div>
     )
 }

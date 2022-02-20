@@ -20,7 +20,7 @@ export const post = async function (url: string, body: any) {
     let header = await getHeaderInfo();
     console.log(body)
     try {
-        let resp = await axios.post( url, body, header);
+        let resp = await axios.post(env_var.BASE_URL + url, body, header);
         return handleResponse(resp);
         console.log(resp);
     } catch (err : any) {
