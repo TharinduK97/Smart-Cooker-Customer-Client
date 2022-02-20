@@ -51,7 +51,7 @@ function Checkout() {
                 }
             ]
         }
-        //console.log(order)
+      
 
         dispatch(postTransaction(order)).then((res) => {
             console.log(res)
@@ -67,8 +67,6 @@ function Checkout() {
 
             <form className="form-detail" onSubmit={handleSubmit(onSubmit)} >
 
-
-
                 <div className="col-start-3 col-span-2 ...  ">
                     <div className="form-control pb-2">
                         <label className="label">
@@ -81,8 +79,6 @@ function Checkout() {
 
                     <button className="btn btn-secondary" type="submit" >Buy Now</button>
 
-
-
                 </div>
 
 
@@ -91,7 +87,6 @@ function Checkout() {
 
                 </div>
                 <br />
-
             </form>
 
 

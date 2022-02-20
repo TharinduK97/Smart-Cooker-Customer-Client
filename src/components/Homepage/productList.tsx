@@ -14,7 +14,6 @@ type productprops = {
    
 }
 
-
 function Productlist(props:productprops) {
     return (
         <div>
