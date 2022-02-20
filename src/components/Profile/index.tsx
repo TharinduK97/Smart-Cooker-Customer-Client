@@ -25,7 +25,7 @@ type profileprops = {
 
 function Profile(props: profileprops) {
   //debugger;
-  console.log(props.profile.addresses)
+  //console.log(props.profile.addresses)
 
   return (
     <div className='sm:container sm:mx-auto' >
@@ -58,7 +58,7 @@ function Profile(props: profileprops) {
                   <dt className="text-sm font-medium text-gray-500">Address </dt>
 
 
-                  {props.profile?.addresses.map((address) => {
+                  {/* {props.profile?.addresses.map((address) => {
 
                     return (
                       <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
@@ -66,7 +66,7 @@ function Profile(props: profileprops) {
 
                       </dd>
                     );
-                  })}
+                  })} */}
 
 
                 </div>

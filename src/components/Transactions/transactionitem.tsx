@@ -11,6 +11,10 @@ type transactionprops = {
     };
 }
 
+
+
+
+
 function TransactionsItem(props: transactionprops) {
 
 
@@ -94,6 +98,12 @@ function TransactionsItem(props: transactionprops) {
                 </div>
 
             </div>
+
+
+           
+
+
+
         </div>
     )
 }
