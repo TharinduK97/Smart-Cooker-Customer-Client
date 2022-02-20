@@ -13,7 +13,7 @@ function ProductList() {
 
     const productList = useAppSelector(selectProductLists);
     const outletList = useAppSelector(selectoutletLists);
-   
+    
 
     useEffect(() => {
         // dispatch(fetchProducts());

@@ -5,10 +5,10 @@ import { IProduct } from './interface';
 
 export interface IProducts {
     isLoadingProducts: boolean;
-    product?:{};
+    product?:[];
   }
 
-  const initialState: IProducts = { isLoadingProducts: false , product:{} 
+  const initialState: IProducts = { isLoadingProducts: false , product:[] 
 
 };
 
@@ -38,12 +38,12 @@ export interface IProducts {
     },
   });
   
-  export const fetchSingleProduct = (id:string) => async (dispatch: any) => {
+  export const fetchSingleProduct = (outletId:string,productId:string) => async (dispatch: any) => {
     dispatch(start());
     // console.log(id)
     try {
-      const product = await getSingleProduct(id);
-      // console.log(product)
+      const product = await getSingleProduct(outletId,productId);
+       console.log(product)
       dispatch(success({product : product.data}));
     } catch (err:any) {
       dispatch(error(err));

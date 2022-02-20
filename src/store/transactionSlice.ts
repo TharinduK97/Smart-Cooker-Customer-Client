@@ -49,7 +49,7 @@ export interface ITransactionList {
 
   export const postTransaction = (data: any) => async (dispatch: any) => {
     dispatch(start());
- console.log(data)
+  console.log(data)
     try {
       const authData = await settransaction(
         data

@@ -20,7 +20,7 @@ function App() {
       <BrowserRouter >
         <Navbar />
         <Routes  >
-        <Route path="/checkout" element={<Checkout />} />
+       
           <Route path="/login" element={<Login />} />
           {/* <PrivateRoute
     path='/profile'
