@@ -1,16 +1,11 @@
-import { getUser } from '../../services/localStorage';
-import { BsPersonFill, BsEnvelopeFill, BsHouseDoorFill, BsArrowReturnLeft, BsCheckLg } from "react-icons/bs";
-import LoginPageProps from '../Login';
+
 import { Address, IProfile } from '../../store/interface';
-import { useState } from 'react';
+
 
 
 
 
 function Profile(props: IProfile) {
-  console.log(props.addresse);
-  
-  
 
   return (
     
@@ -47,10 +42,12 @@ function Profile(props: IProfile) {
                   {props.addresses?.map((address) => {
 
                     return (
+                      <dt className="text-sm font-medium text-gray-500">
                       <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                         {address.doorNumber},{address.street},{address.city}
 
                       </dd>
+                      </dt>
                     );
                   })}
 

@@ -7,12 +7,12 @@ import { Outlet } from "react-router-dom";
 import { getProfile } from "../services/profileService";
 
 export interface IProfileSlice {
-    isLoadingOutlet: boolean;
+    isLoadingTransactions: boolean;
     profile?: IProfile | undefined;
     
   }
 
-  const initialState: IProfileSlice = { isLoadingOutlet: false , profile:{
+  const initialState: IProfileSlice = { isLoadingTransactions: false , profile:{
     addresses:undefined,
     email:"",
     firstName:"",
@@ -29,20 +29,20 @@ export interface IProfileSlice {
       start: (state) => {
         return {
           ...state,
-          isLoadingoutlet: true,
+          isLoadingTransactions: true,
         };
       },
       success: (state, action: PayloadAction<any>) => {
         return {
           ...state,
           ...action.payload,
-          isLoadingoutlet: false,
+          isLoadingTransactions: false,
         };
       },
       error: (state, action: PayloadAction<string>) => {
         return {
           ...state,
-          isLoadingoutlet: false,
+          isLoadingTransactions: false,
         };
       },
 
@@ -53,7 +53,7 @@ export interface IProfileSlice {
     dispatch(start());
     try {
       const profile = await getProfile();
-     console.log(profile)
+    
       dispatch(success({profile : profile.data}));
     } catch (err:any) {
       dispatch(error(err));
