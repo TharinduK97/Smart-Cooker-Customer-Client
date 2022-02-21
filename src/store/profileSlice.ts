@@ -1,18 +1,26 @@
 import { createSlice, PayloadAction  } from "@reduxjs/toolkit";
 import { getOutletList } from '../services/outletService';
 import { RootState } from "."
-import { IOutlet } from './interface';
+import { IOutlet, IProfile } from './interface';
 import { number } from "yup/lib/locale";
 import { Outlet } from "react-router-dom";
 import { getProfile } from "../services/profileService";
 
-export interface IProfile {
+export interface IProfileSlice {
     isLoadingOutlet: boolean;
-    profile?: {};
+    profile?: IProfile | undefined;
     
   }
 
-  const initialState: IProfile = { isLoadingOutlet: false , profile:{}};
+  const initialState: IProfileSlice = { isLoadingOutlet: false , profile:{
+    addresses:undefined,
+    email:"",
+    firstName:"",
+    id:"",
+    lastName:"",
+    nic:""
+
+  }};
 
   export const profileSlice = createSlice({
     name: 'Profile',
@@ -45,7 +53,7 @@ export interface IProfile {
     dispatch(start());
     try {
       const profile = await getProfile();
-      console.log(profile)
+     console.log(profile)
       dispatch(success({profile : profile.data}));
     } catch (err:any) {
       dispatch(error(err));

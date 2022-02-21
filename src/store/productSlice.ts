@@ -50,7 +50,7 @@ export interface IProductList {
     dispatch(start());
     try {
       const productLists = await getProductListByOutlet(outlet_id);
-      //console.log(productLists.data[0].outletProducts)
+     
       dispatch(success({productList : productLists.data[0].outletProducts}));
     } catch (err:any) {
       dispatch(error(err));

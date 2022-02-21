@@ -40,12 +40,12 @@ export const authenticateUser = (userData: any) => async (dispatch: any) => {
     const authData = await authenticate(
       userData
     );
-     console.log(authData);
+    
     setTokens(authData.data);
     dispatch(success(authData.data));
 
   } catch (err: any) {
-    console.log(err);
+    
     dispatch(error(err));
   }
 };

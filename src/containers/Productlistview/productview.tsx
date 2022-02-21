@@ -27,7 +27,7 @@ function ProductView() {
     return (
 
       <div >
-         {/* {console.log(product.product)} */}
+         
         <ProductViewPage product={product.product} /> 
         
       </div>

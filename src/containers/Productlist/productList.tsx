@@ -16,7 +16,7 @@ function ProductList() {
     
 
     useEffect(() => {
-        // dispatch(fetchProducts());
+       
         dispatch(fetchProductsByOutlet(outletList.selectedOutlet));
     }, [dispatch,outletList.selectedOutlet]);
 

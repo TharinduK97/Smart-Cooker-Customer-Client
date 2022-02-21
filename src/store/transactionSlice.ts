@@ -1,15 +1,16 @@
 import { createSlice, PayloadAction  } from "@reduxjs/toolkit";
 import Transactions from "../containers/Transactions/transactions";
-import { getTransactionList, settransaction } from '../services/transactionService';
+import { getTransactionList, gettransactionProducts, settransaction } from '../services/transactionService';
 import { RootState } from "."
 import { ITransaction } from './interface';
 
 export interface ITransactionList {
     isLoadingTransaction: boolean;
-    transactionList?: ITransaction[];
+    transactionList?: [];
+    Products?:[]
   }
 
-  const initialState: ITransactionList = { isLoadingTransaction: false , transactionList:[]};
+  const initialState: ITransactionList = { isLoadingTransaction: false , transactionList:[], Products:[]};
 
   export const transactionListSlice = createSlice({
     name: 'transactionList',
@@ -41,7 +42,20 @@ export interface ITransactionList {
     dispatch(start());
     try {
       const transactionList = await getTransactionList();
-      dispatch(success({transactionList : transactionList}));
+     
+      dispatch(success({transactionList : transactionList.data}));
+    } catch (err:any) {
+      dispatch(error(err));
+    }
+  };
+
+  export const fetchTransactionView = (data: any) => async (dispatch: any) => {
+    console.log(data)
+    dispatch(start());
+    try {
+      const transactionList = await gettransactionProducts(data);
+      console.log(transactionList)
+      dispatch(success({Products : transactionList.data}));
     } catch (err:any) {
       dispatch(error(err));
     }
@@ -49,7 +63,7 @@ export interface ITransactionList {
 
   export const postTransaction = (data: any) => async (dispatch: any) => {
     dispatch(start());
-  console.log(data)
+ 
     try {
       const authData = await settransaction(
         data

@@ -52,7 +52,7 @@ export interface IoutletList {
     dispatch(start());
     try {
       const outletList = await getOutletList();
-      //console.log(outletList)
+      
       dispatch(success({outletList : outletList.data}));
     } catch (err:any) {
       dispatch(error(err));
