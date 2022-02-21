@@ -35,11 +35,6 @@ export interface IProfile {
     firstName: string,
     lastName: string,
     nic: string,
-    addresse: {
-        id: string;
-        doorNumber: string;
-        street: string;
-        city: string;
-    }[]
+    addresses?:Address[]
     
 };

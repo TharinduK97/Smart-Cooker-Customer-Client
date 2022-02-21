@@ -7,10 +7,10 @@ import ProductView from './containers/Productlistview/productview';
 import Transactions from './containers/Transactions/transactions';
 import Orders from './containers/Orders/orders';
 import Login from "../src/components/Login/index"
-import { PrivateRoute } from '../src/helpers/privateRoutes';
 import Profile from './containers/Profile/index';
-import Checkout from './containers/Checkout';
+
 import { isAuthenticated } from './services/authenticationService';
+import TransactionsView from './containers/TransactionView/transactionView';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,14 +22,12 @@ function App() {
         <Routes  >
        
           <Route path="/login" element={<Login />} />
-          {/* <PrivateRoute
-    path='/profile'
-    isAuthenticated={isAuthenticated}
-    component={Profile}
-/> */}
           <Route path="/profile" element={<Profile />} />
            <Route path="/orders" element={<Orders />} />
-          <Route path="/transactions" element={<Transactions />} />
+          <Route path="/transactions">
+            <Route index element={<Transactions/>} />
+            <Route path="/transactions:id" element={<TransactionsView/>} />
+          </Route>
           <Route path="/">
             <Route index element={<ProductList />} />
             <Route path="/view/:id" element={<ProductView />} />

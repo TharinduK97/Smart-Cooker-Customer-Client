@@ -58,14 +58,16 @@ function ProductView(props: productprops) {
             ]
         }
 
-        if(data.quantity<=props.product.quantity){
+        if (data.quantity <= props.product.quantity) {
             dispatch(postTransaction(order)).then((res) => {
                 console.log(res)
                 alert("success");
                 navigate("/");
             })
+        } else {
+            alert("Invalid Quantity")
         }
-        
+
     };
 
 
@@ -75,7 +77,7 @@ function ProductView(props: productprops) {
 
             <div className="container mx-auto pt-6 ">
 
-                
+
 
 
                 <div className="col-start-3 col-span-3 ...">
@@ -83,31 +85,32 @@ function ProductView(props: productprops) {
                         <div className="pt-6">
 
 
-                            {/* Image gallery */}
+
                             <div className="mt-6 max-w-2xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-3 lg:gap-x-8">
                                 <figure>
                                     <img src={props.product.imageUrl} />
                                 </figure>
                             </div>
 
-                            {/* Product info */}
+
                             <div className="max-w-2xl mx-auto pt-10 pb-16 px-4 sm:px-6 lg:max-w-7xl lg:pt-16 lg:pb-24 lg:px-8 lg:grid lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8">
                                 <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
                                     <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">{props.product.productName}</h1>
                                 </div>
 
-                                {/* Options */}
+
                                 <div className="mt-4 lg:mt-0 lg:row-span-3">
                                     <h2 className="sr-only">Product information</h2>
                                     <p className="text-3xl text-gray-900">Rs. {props.product.price}</p>
 
-
-                                    <form className="mt-10" onSubmit={handleSubmit(onSubmit)}>
-
-                                        <div>
+                                    <div>
                                             <h3 className="text-sm text-gray-900 font-medium">Available Quantity - <div className="badge badge-accent">{props.product.quantity}</div></h3>
 
                                         </div>
+
+                                    {isAuthenticated() && <form className="mt-10" onSubmit={handleSubmit(onSubmit)}>
+
+                                        
                                         <div className="form-control pb-2">
                                             <label className="label">
                                                 <span className="label-text text-lg">Enter the quantity</span>
@@ -123,11 +126,13 @@ function ProductView(props: productprops) {
                                         >
                                             Buy Now
                                         </button>
-                                    </form>
+                                    </form>}
+
+
                                 </div>
 
                                 <div className="py-10 lg:pt-6 lg:pb-16 lg:col-start-1 lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-                                    {/* Description and details */}
+
                                     <div>
                                         <h3 className="sr-only">Description</h3>
 

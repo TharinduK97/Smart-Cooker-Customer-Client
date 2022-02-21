@@ -15,11 +15,11 @@ function Outlets() {
   }, [dispatch]);
 
   const onChange = (e:any) =>{
-    // console.log(e.target.value)
+   
     dispatch( selectOutlet(e.target.value));
     
   }
- //console.log(outletList.outletList)
+ 
     return (
       <div >
          <div className="container mx-auto  ">

@@ -40,10 +40,10 @@ export interface IProducts {
   
   export const fetchSingleProduct = (outletId:string,productId:string) => async (dispatch: any) => {
     dispatch(start());
-    // console.log(id)
+   
     try {
       const product = await getSingleProduct(outletId,productId);
-       console.log(product)
+       
       dispatch(success({product : product.data}));
     } catch (err:any) {
       dispatch(error(err));

@@ -11,6 +11,6 @@ export const getProductListByOutlet = async function (outlet_id:string) {
 };
 
 export const getSingleProduct = async function (OutletId:string,ProductId:string) {
-  console.log(OutletId,ProductId)
+ 
   return await get(`Product/GetSingleProduct?ProductId=${ProductId}&&OutletId=${OutletId}`);
 };
