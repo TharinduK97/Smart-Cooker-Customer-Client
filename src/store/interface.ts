@@ -38,3 +38,18 @@ export interface IProfile {
     addresses?:Address[]
     
 };
+
+export interface IOrderProduct {
+        id: string;
+    email: string,
+    firstName: string,
+    lastName: string,
+    nic: string,
+    addresses?:Address[]
+    
+};
+
+export interface Orderproducts {
+        quantity:number;
+        product:IProduct;
+    }

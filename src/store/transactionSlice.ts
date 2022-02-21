@@ -54,7 +54,7 @@ export interface ITransactionList {
     dispatch(start());
     try {
       const transactionList = await gettransactionProducts(data);
-      console.log(transactionList)
+      
       dispatch(success({Products : transactionList.data}));
     } catch (err:any) {
       dispatch(error(err));

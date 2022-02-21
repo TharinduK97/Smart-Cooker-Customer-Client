@@ -16,8 +16,8 @@ function Transactions() {
   
       return (
         <div >
-            {console.log(transactionList.Products)}
-            <TransactionsView  products={transactionList.Products} />
+           
+            <TransactionsView  Orderproducts={transactionList?.Products} />
         </div>
       )
     }
