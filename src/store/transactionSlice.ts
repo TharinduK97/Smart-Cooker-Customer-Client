@@ -50,7 +50,7 @@ export interface ITransactionList {
   };
 
   export const fetchTransactionView = (data: any) => async (dispatch: any) => {
-    console.log(data)
+   
     dispatch(start());
     try {
       const transactionList = await gettransactionProducts(data);

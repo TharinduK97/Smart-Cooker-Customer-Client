@@ -11,7 +11,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { selectoutletLists } from "../../store/outletSlice";
 import { selectProduct } from "../../store/productViewSlice";
-
+import {  toast } from 'react-toastify';
 
 type productprops = {
 
@@ -30,7 +30,7 @@ interface IFormInputs {
 }
 
 const schema = yup.object({
-    quantity: yup.number().positive().integer().required().max(10)
+    quantity: yup.number().typeError('Quantity is required').positive().integer().required().max(100)
 
 }).required();
 
@@ -61,11 +61,15 @@ function ProductView(props: productprops) {
         if (data.quantity <= props.product.quantity) {
             dispatch(postTransaction(order)).then((res) => {
                 console.log(res)
-                alert("success");
+                toast("Order is Added");
                 navigate("/");
+            }).catch(function (response) {
+                toast("Something went wrong !!!");
+                navigate('/');
             })
         } else {
-            alert("Invalid Quantity")
+            toast("Invalid quantity");
+           // alert("Invalid quantity");
         }
 
     };
@@ -115,7 +119,7 @@ function ProductView(props: productprops) {
                                             <label className="label">
                                                 <span className="label-text text-lg">Enter the quantity</span>
                                             </label>
-                                            <input type="number" placeholder="quantity" className="input input-bordered" {...register("quantity")} />
+                                            <input type="number" placeholder="Quantity" className="input input-bordered" {...register("quantity")} />
                                         </div>
 
                                         <label ><p className="text-red-500 pl-1 text-sm">{errors.quantity?.message}</p></label>

@@ -32,16 +32,16 @@ function TransactionsViewItem(props:productprops) {
                         <h3>
                             <a >{props.Orderproducts.product.productName}</a>
                         </h3>
-                        <p className="ml-4">Rs. {props.Orderproducts.product.price}</p>
+                        <p className="ml-4">Qty - {props.Orderproducts.quantity}</p>
                     </div>
-                    <p className="mt-1 text-sm text-gray-500">color</p>
+                    <p className="mt-1 text-sm text-gray-500"></p>
                 </div>
                 <div className="flex-1 flex items-end justify-between text-sm">
-                    <p className="text-gray-500">Qty {props.Orderproducts.quantity}</p>
+                    <p className="text-gray-500"></p>
 
                     <div className="flex">
-                        <p className="ml-4 text-black"> props.transaction.created_at</p>
 
+                        <p className="ml-4 text-black"> </p>
 
                     </div>
                 </div>

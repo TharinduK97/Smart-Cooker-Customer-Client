@@ -39,7 +39,7 @@ const LoginPageProps: React.FunctionComponent<ILoginPageProps> = (props) => {
 
     const onSubmit = (data: IFormInputs) => {
 
-        console.log(data)
+       
         dispatch(authenticateUser(data)).then(
             ()=>{
                 if (isAuthenticated()) {
