@@ -16,7 +16,7 @@ function Navbar() {
             <div className="flex-none px-2 mx-2">
           
                 <Link to="/">
-                    <span className="text-lg font-bold">
+                    <span className="text-lg font-bold" id="logo">
                         Smart Cookers
                     </span>
                 </Link>

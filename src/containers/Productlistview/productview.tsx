@@ -12,7 +12,7 @@ function ProductView() {
    
     const dispatch = useAppDispatch();
 
-    const product = useAppSelector(selectProduct);
+    const {product} = useAppSelector(selectProduct);
     const outletList = useAppSelector(selectoutletLists);
    
    
@@ -23,12 +23,18 @@ function ProductView() {
       }, [dispatch]);
       
       
-
+      if(!product){
+        return(
+            <div>
+                Loading ...
+            </div>
+        )
+    }
     return (
 
       <div >
-         
-        <ProductViewPage product={product.product} /> 
+        
+        <ProductViewPage {...product} /> 
         
       </div>
     )

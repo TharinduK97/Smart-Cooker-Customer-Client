@@ -7,7 +7,7 @@ import { Outlet } from "react-router-dom";
 
 export interface IoutletList {
     isLoadingOutlet: boolean;
-    outletList?: [];
+    outletList?:IOutlet[];
     selectedOutlet:string;
   }
 

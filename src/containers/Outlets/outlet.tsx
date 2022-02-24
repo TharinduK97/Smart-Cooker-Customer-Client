@@ -8,7 +8,8 @@ function Outlets() {
     
   const dispatch = useAppDispatch();
 
-  const outletList = useAppSelector(selectoutletLists);
+  const {outletList} = useAppSelector(selectoutletLists);
+  const {selectedOutlet} = useAppSelector(selectoutletLists);
 
   useEffect(() => {
       dispatch(fetchoutlets());
@@ -27,10 +28,10 @@ function Outlets() {
 
                     <div className="col-start-3 col-span-2 ...  ">
 
-                        <select className="select select-bordered w-full max-w-xs"  onChange={onChange} value={outletList.selectedOutlet}>
-                            <option disabled={true} selected={true} value="0">Choose the Outlet</option>
+                        <select className="select select-bordered w-full max-w-xs"  onChange={onChange} value={selectedOutlet}>
+                            <option disabled={true}  value="0">Choose the Outlet</option>
                             
-                  {outletList.outletList?.map((outlet, index) => {
+                  {outletList?.map((outlet, index) => {
                     return(
                         <option key={index} value={outlet.id}>
                         {outlet.city}

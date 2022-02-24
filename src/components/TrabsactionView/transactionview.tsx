@@ -1,19 +1,9 @@
+import { IOrderproducts } from "../../store/interface"
 import TransactionsViewItem from "./transactionViewItem"
 
-type productprops = {
-    Orderproducts: {
-        quantity:number;
-        product:{
-            id:string
-            price:string,
-            quantity: number;
-            productName: string;
-            imageUrl:string;
-        }
-    }[];
-}
 
-function TransactionsView(props:productprops) {
+
+function TransactionsView({data}:{data:IOrderproducts[]}) {
 
 
     return (
@@ -33,9 +23,9 @@ function TransactionsView(props:productprops) {
                                         <div className="flow-root">
                                             <ul role="list" className="-my-6 divide-y divide-gray-200">
 
-                                               {props.Orderproducts.map((product,index)=>{
+                                               {data?.map((product,index)=>{
                                                    return(
-                                                   <TransactionsViewItem Orderproducts={product} key={index}/>
+                                                   <TransactionsViewItem {...product} key={index}/>
                                                    )
                                                })
                                                 

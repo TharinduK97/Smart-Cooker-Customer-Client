@@ -1,29 +1,17 @@
 import TransactionsItem from "./transactionitem"
 import { Fragment, useState } from 'react'
+import { ITransaction  } from "../../store/interface"
 
-type transactionprops = {
-  transactions: {
-    id: number;
-    orderStatus: string;
-    totalPrice: number;
-    outlet: {
-      city: string;
-      doorNumber: number;
-      id: string;
-      street: string;
-    };
-    createdAt: string;
-  }[];
 
-}
-
-function TransactionsPage(props: transactionprops) {
+function TransactionsPage({data}: {data:ITransaction[]} ) {
 
 
   return (
 
     <div >
       <div className="container mx-auto  ">
+
+  
 
         <div className="flex flex-col">
           <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -66,9 +54,9 @@ function TransactionsPage(props: transactionprops) {
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200">
-                    {props.transactions.map((transaction, index) => {
+                    {data?.map((transaction, index) => {
                       return (
-                        <TransactionsItem transaction={transaction} key={index} num={index+1}/>
+                        <TransactionsItem {...transaction} key={index} />
                       )
                     })}
                   </tbody>

@@ -2,15 +2,15 @@ import { createSlice, PayloadAction  } from "@reduxjs/toolkit";
 import Transactions from "../containers/Transactions/transactions";
 import { getTransactionList, gettransactionProducts, settransaction } from '../services/transactionService';
 import { RootState } from "."
-import { ITransaction } from './interface';
+import { IOrderproducts, IProduct, ITransaction } from './interface';
 
 export interface ITransactionList {
     isLoadingTransaction: boolean;
-    transactionList?: [];
-    Products?:[]
+    transactionList: ITransaction[] | undefined;
+    Products?:IOrderproducts[] | undefined;
   }
 
-  const initialState: ITransactionList = { isLoadingTransaction: false , transactionList:[], Products:[]};
+  const initialState: ITransactionList = { isLoadingTransaction: false , transactionList:undefined, Products:undefined};
 
   export const transactionListSlice = createSlice({
     name: 'transactionList',
@@ -42,7 +42,6 @@ export interface ITransactionList {
     dispatch(start());
     try {
       const transactionList = await getTransactionList();
-     
       dispatch(success({transactionList : transactionList.data}));
     } catch (err:any) {
       dispatch(error(err));
@@ -68,7 +67,7 @@ export interface ITransactionList {
       const authData = await settransaction(
         data
       );
-      console.log(authData);
+    
          return "sucess";
         
     } catch (err: any) {

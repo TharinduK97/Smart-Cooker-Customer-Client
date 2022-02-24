@@ -47,7 +47,7 @@ function Cart() {
     return (
       <div >
           
-          <p>{transactionList.length}</p>
+          <p>{transactionList?.length}</p>
 
 
 

@@ -1,29 +1,21 @@
+import { IOutletProduct, IOutletProducts } from '../../store/interface'
 import ProductListItem from './productListItem'
 
-type productprops = {
-    products: {
-        availableQuantity:number;
-        product:{
-            id:string
-            price:string,
-            quantity: number;
-            productName: string;
-            imageUrl:string;
-        }
-    }[];
-   
-}
 
-function Productlist(props:productprops) {
+function Productlist(props:IOutletProducts) {
+
+
+
+
     return (
         <div>
            
             <div className="grid grid-cols-5 gap-6  pt-4">
             
-                            {props.products.map((products,index) =>
+                            {props.outletProducts.map((product,index) =>
                                 {
                                     return(
-                                            <ProductListItem product={products} key={index} />   
+                                            <ProductListItem  {...product} key={index}  />   
                                     )
                                 })}
 
