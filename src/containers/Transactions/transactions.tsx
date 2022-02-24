@@ -6,15 +6,24 @@ function Transactions() {
     
   const dispatch = useAppDispatch();
 
-  const transactionList = useAppSelector(selectTransactionLists);
+  const {transactionList} = useAppSelector(selectTransactionLists);
 
   useEffect(() => {
       dispatch(fetchTransactions());
   }, [dispatch]);
 
+  if(!transactionList){
+    return(
+        <div>
+            Loading ...
+        </div>
+    )
+}
+
     return (
       <div >
-          <TransactionsPage  transactions={transactionList.transactionList} />
+       
+          <TransactionsPage data= {transactionList} />
       </div>
     )
   }

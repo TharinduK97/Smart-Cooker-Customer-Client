@@ -11,7 +11,7 @@ function ProductList() {
 
     const dispatch = useAppDispatch();
 
-    const productList = useAppSelector(selectProductLists);
+    const {productList} = useAppSelector(selectProductLists);
     const outletList = useAppSelector(selectoutletLists);
     
 
@@ -20,12 +20,21 @@ function ProductList() {
         dispatch(fetchProductsByOutlet(outletList.selectedOutlet));
     }, [dispatch,outletList.selectedOutlet]);
 
+    if(!productList){
+        return(
+            <div>
+                
+                Loading ...
+            </div>
+        )
+    }
+
     return (
         <div>
             
             <Outlets/>
             
-            < Productlistpage products={productList.productList} />
+            < Productlistpage {...productList} />
 
         </div>
     )

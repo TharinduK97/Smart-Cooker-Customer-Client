@@ -1,14 +1,14 @@
 import { createSlice, PayloadAction  } from "@reduxjs/toolkit";
 import { getProductList, getProductListByOutlet } from '../services/productService';
 import { RootState } from "../store"
-import { IProduct } from './interface';
+import {  IOutletProducts, IProduct } from './interface';
 
 export interface IProductList {
     isLoadingProducts: boolean;
-    productList?: [];
+    productList?: IOutletProducts | undefined;
   }
 
-  const initialState: IProductList = { isLoadingProducts: false , productList:[]};
+  const initialState: IProductList = { isLoadingProducts: false , productList:undefined};
 
   export const productListSlice = createSlice({
     name: 'productList',
@@ -50,8 +50,9 @@ export interface IProductList {
     dispatch(start());
     try {
       const productLists = await getProductListByOutlet(outlet_id);
+    
      
-      dispatch(success({productList : productLists.data[0].outletProducts}));
+      dispatch(success({productList : productLists.data[0]}));
     } catch (err:any) {
       dispatch(error(err));
     }

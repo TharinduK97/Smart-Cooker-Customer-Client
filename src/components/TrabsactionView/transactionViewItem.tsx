@@ -1,17 +1,6 @@
-type productprops = {
-    Orderproducts: {
-        quantity:number;
-        product:{
-            id:string
-            price:number,
-            quantity: number;
-            productName: string;
-            imageUrl:string;
-        }
-    };
-}
+import { IOrderproducts } from "../../store/interface"
 
-function TransactionsViewItem(props:productprops) {
+function TransactionsViewItem(props:IOrderproducts) {
 
 
     return (
@@ -20,7 +9,7 @@ function TransactionsViewItem(props:productprops) {
         <li className="py-6 flex">
             <div className="flex-shrink-0 w-24 h-24 border border-gray-200 rounded-md overflow-hidden">
                 <img
-                    src={props.Orderproducts.product.imageUrl}
+                    src={props.product.imageUrl}
 
                     className="w-full h-full object-center object-cover"
                 />
@@ -30,9 +19,9 @@ function TransactionsViewItem(props:productprops) {
                 <div>
                     <div className="flex justify-between text-base font-medium text-gray-900">
                         <h3>
-                            <a >{props.Orderproducts.product.productName}</a>
+                            <a >{props.product.productName}</a>
                         </h3>
-                        <p className="ml-4">Qty - {props.Orderproducts.quantity}</p>
+                        <p className="ml-4">Qty - {props.quantity}</p>
                     </div>
                     <p className="mt-1 text-sm text-gray-500"></p>
                 </div>

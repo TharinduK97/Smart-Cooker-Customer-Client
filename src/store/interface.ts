@@ -8,17 +8,18 @@ export interface IProduct {
 };
 
 export interface ITransaction {
-        order_ID: number;
-        product_name: string;
-        price: number;
-        quantity: number;
-        Created_at: string;
-        productImage:string;
+        id: string;
+        createdAt: string;
+        orderStatus: number;
+        totalPrice: number;
+        outlet:IOutlet;
 };
 
+
+
 export interface IOutlet {
-        outlet_id: number;
-        door_number: number;
+        id: number;
+        doorNumber: number;
         street: string;
         city: string;
 };
@@ -39,17 +40,21 @@ export interface IProfile {
     
 };
 
-export interface IOrderProduct {
-        id: string;
-    email: string,
-    firstName: string,
-    lastName: string,
-    nic: string,
-    addresses?:Address[]
+
+
+export interface IOutletProduct {
+        availableQuantity: number;
+        productId: string;
+        product: IProduct;
     
 };
 
-export interface Orderproducts {
+export interface IOutletProducts {
+        outletProducts:IOutletProduct[]
+    
+};
+
+export interface IOrderproducts {
         quantity:number;
         product:IProduct;
     }

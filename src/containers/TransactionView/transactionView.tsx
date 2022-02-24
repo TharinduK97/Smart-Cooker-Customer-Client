@@ -3,21 +3,29 @@ import { fetchTransactionView, selectTransactionLists } from "../../store/transa
 import { useState, useEffect } from 'react';
 import TransactionsView from "../../components/TrabsactionView/transactionview";
 import { useParams } from "react-router-dom";
+
 function Transactions() {
-    
+  const  {id} = useParams();
     const dispatch = useAppDispatch();
-    const  {id} = useParams();
+    const {Products} = useAppSelector(selectTransactionLists);
   
-    const transactionList = useAppSelector(selectTransactionLists);
-  
+    
     useEffect(() => {
         dispatch(fetchTransactionView(id));
     }, [dispatch]);
-  
+
+    if(!Products){
+      return(
+          <div>
+              Loading ...
+          </div>
+      )
+  }
+ 
       return (
         <div >
            
-            <TransactionsView  Orderproducts={transactionList?.Products} />
+            <TransactionsView  data={Products} />
         </div>
       )
     }

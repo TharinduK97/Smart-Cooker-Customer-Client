@@ -1,14 +1,21 @@
 import { createSlice, PayloadAction  } from "@reduxjs/toolkit";
 import { getProductList, getSingleProduct } from '../services/productService';
 import { RootState } from "."
-import { IProduct } from './interface';
+import { IOutletProducts, IProduct } from './interface';
 
 export interface IProducts {
     isLoadingProducts: boolean;
-    product?:[];
+    product?:IProduct | undefined;
   }
 
-  const initialState: IProducts = { isLoadingProducts: false , product:[] 
+  const initialState: IProducts = { isLoadingProducts: false , product:{
+         id: "",
+        productName: "",
+        description:"",
+        price: 0,
+        quantity: 0,
+        imageUrl:""
+  }
 
 };
 
@@ -38,11 +45,12 @@ export interface IProducts {
     },
   });
   
-  export const fetchSingleProduct = (outletId:string,productId:string) => async (dispatch: any) => {
+  export const fetchSingleProduct = (outletId:string,productId:string | undefined) => async (dispatch: any) => {
     dispatch(start());
    
     try {
       const product = await getSingleProduct(outletId,productId);
+       
        
       dispatch(success({product : product.data}));
     } catch (err:any) {
